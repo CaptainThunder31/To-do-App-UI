@@ -33,37 +33,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Function to render tasks in the taskList div
   function renderTasks() {
-    wrapper.innerHTML = ""; // Clear existing content
-    tasks.forEach(task => {
-      let currentId = 1;
-      const taskDiv = document.createElement("div");
+    wrapper.innerHTML = "";
+    const taskDiv = document.createElement("div");
       taskDiv.textContent = task.task;
-      taskDiv.classList.add('taskDiv')
-      taskDiv.setAttribute('data-id', currentId)
-      wrapper.appendChild(taskDiv);
-      currentId++;
-    });
+   taskDiv.classList.add('taskDiv')
 
+   wrapper.appendChild(taskDiv);
     const taskDiv = document.querySelectorAll('.taskDiv');
-    
-    let selectedTasks = [];
-    
-wrapper.addEventListener('click', function(e) {
-  if (e.target.classList.contains('taskDiv')) {
-    const itemId = e.target.getAttribute('data-id');
-    
-    // Toggle selection
-    if (selectedTasks.includes(itemId)) {
-      selectedTasks = selectedTasks.filter(id => id !== itemId);
-      e.target.classList.remove('selected');
-    } else {
-      selectedTasks.push(itemId);
-      e.target.classList.add('selected');
-    }
-    
-    console.log(selectedTasks);  // Output selected item IDs
-  }
-});
 
 // Example: Add new items dynamically
 
